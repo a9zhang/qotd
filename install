@@ -14,10 +14,29 @@ helm repo update
 
 oc project qotd-demo
 
-helm install qotd-demo qotd/qotd \
-    --set namespace=qotd-demo \
-    --set enableInstana=true \
-    --set imageTag=v4.0.1
-    
- --set host=aiops-bod-demo1-f093f392e7a90e14d4eed17d1b9de6f3-0000.us-east.containers.appdomain.cloud \
-    https://c118-e.us-south.containers.cloud.ibm.com:30106
+
+helm install qotd-demo qotd/qotd
+
+
+
+NAME: qotd-demo
+LAST DEPLOYED: Sun Jul  3 03:59:19 2022
+NAMESPACE: qotd-demo
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+The QotD application code is running in the qotd namespace.  The route 
+can be used to access the main application UI is
+
+http://qotd-web-qotd.apps.localhost ; echo
+
+The Load Generator and Anomaly Generator are deployed to the qotd-load namespace, 
+and can be accessed with
+
+http://qotd-usecase-qotd-load.apps.localhost
+
+
+
+Happy quoting!
+
