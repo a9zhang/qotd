@@ -1,0 +1,23 @@
+1. create new VM
+2. install helm
+3.
+
+oc new-project qotd-demo
+oc adm policy add-scc-to-user anyuid -z default
+
+oc new-project qotd-load-demo
+oc adm policy add-scc-to-user anyuid -z default
+
+helm repo add qotd https://gitlab.com/api/v4/projects/26143345/packages/helm/stable
+
+helm repo update
+
+oc project qotd-demo
+
+helm install qotd-demo qotd/qotd \
+    --set namespace=qotd-demo \
+    --set enableInstana=true \
+    --set imageTag=v4.0.1
+    
+ --set host=aiops-bod-demo1-f093f392e7a90e14d4eed17d1b9de6f3-0000.us-east.containers.appdomain.cloud \
+    https://c118-e.us-south.containers.cloud.ibm.com:30106
